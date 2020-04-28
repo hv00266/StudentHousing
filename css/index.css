@@ -1,0 +1,46 @@
+/* Color palette: https://coolors.co/5c9ead-3a5683-006992-d9dcd6-f8f4fd */
+ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #3A5683;
+}
+
+li
+{
+    float: right;
+}
+
+li a
+{
+    font-size: 20px;
+    display: block;
+    color: #F8F4FD;
+    text-align: center;
+    padding: 16px 22px;
+    text-decoration: none;
+}
+
+a:hover
+{
+    background-color: #5C9EAD;
+}
+
+#login-container
+{
+    margin: 0;
+    padding: 100px 0px;
+/*     background-image: url(../images/mainbackground.jpg); */
+    background-size: 100%;
+    background-repeat: repeat-x;
+}
+
+h1
+{
+    text-align: center;
+    margin-top: 0;
+    color: #006992;
+    font-size: 40px;
+}
