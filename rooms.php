@@ -31,28 +31,28 @@
             </ul>
         </nav>
         <main>
-        <div id="room-table">
-                    <table style="width: 60%;">
-                        <thead>
-                            <tr class="th2">
-                                <th>Residence Hall</th>
-                                <th>Room</th>
-                                <th>Status</th>
-                            </tr>
-                            <?php
-                                while($r = mysqli_fetch_array($result)):
-                            ?>
-                            <tr>
-                                <td><?php echo $r['residence_hall']; ?></td>
-                                <td style="text-align: center;"><?php echo $r['room_number']; ?></td>
-                                <td><?php echo $r['room_state']; ?></td>
-                            </tr>
-                            <?php 
-                                endwhile;
-                            ?>
-                        </thead>
-                    </table>
-                </div>
+            <div>
+                <table style="width: 60%;" id="room-table">
+                    <thead>
+                        <tr class="th2">
+                            <th>Residence Hall</th>
+                            <th>Room</th>
+                            <th>Status</th>
+                        </tr>
+                        <?php
+                            while($r = mysqli_fetch_array($result)):
+                        ?>
+                        <tr>
+                            <td><?php echo $r['residence_hall']; ?></td>
+                            <td style="text-align: center;"><?php echo $r['room_number']; ?></td>
+                            <td><?php echo $r['room_state']; ?></td>
+                        </tr>
+                        <?php 
+                            endwhile;
+                        ?>
+                    </thead>
+                </table>
+            </div>
         </main>
     </body>
 </html>

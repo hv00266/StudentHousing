@@ -64,6 +64,37 @@ h1
     color: black;
 }
 
-#room-table {
+.rooms {
     margin: auto;
 }
+
+#room-table {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    border: 2px solid;
+    border-color: #183A37;
+}
+
+#room-table td, #room-table th{
+    text-align: center;
+    border: 1px solid black;
+    padding: 8px;
+}
+
+#room-table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+#room-table tr:hover {
+    background-color: #ddd;
+}
+
+#room-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #5C9EAD;
+    color: white;
+  }
