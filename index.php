@@ -1,38 +1,74 @@
 <?php
-   include("config.php");
-   session_start();
+    include("config.php");
+    session_start();
+
+    if(isset($_SESSION['message'])) {
+?>
+       <h1 style="color: white; background-color: #ff9999;"><?php echo $_SESSION['message']; ?></h1>
+<?php
+    unset($_SESSION['message']);
+    }
    
     if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $_SESSION['eid'] = NULL;
       
         //get eid and password from post request
         $eid = mysqli_real_escape_string($db,$_POST['eid']);
         //$password = mysqli_real_escape_string($db,$_POST['password']); 
         
         //query Users table to check if user exists
-        $query = "SELECT * FROM Resident WHERE EID = '$eid'/*  and userPassword = '$password' */";
-        $result = mysqli_query($db, $query);
-        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        $res = "SELECT * FROM Resident WHERE EID = '$eid'/*  and userPassword = '$password' */";
+        $ra = "SELECT * FROM Resident WHERE RA_EID = '$eid'";
+        $dir = "SELECT * FROM Director WHERE Dir_eid = '$eid'";
+
+        $res_result = mysqli_query($db, $res);
+        $ra_result = mysqli_query($db, $ra);
+        $dir_result = mysqli_query($db, $dir);
+
+        $row = mysqli_fetch_array($res_result,MYSQLI_ASSOC);
         $fName = $row['fname'];
         $eid = $row['EID'];
       
-        $count = mysqli_num_rows($result);
+        $res_count = mysqli_num_rows($res_result);
+        $ra_count = mysqli_num_rows($ra_result);
+        $dir_count = mysqli_num_rows($dir_result);
        
         //if user exists
-        if($count == 1) 
+        if($dir_count == 1) 
         {
             //set session variables
+            $_SESSION['role'] = "Director";
+            $_SESSION['fname'] = $fName;
+            $_SESSION['eid'] = $eid;            
+         
+            //redirect to home
+            header("Location: home.php");
+        }
+        elseif($ra_count > 0){
+            //set session variables
+            $_SESSION['role'] = "RA";
             $_SESSION['fname'] = $fName;
             $_SESSION['eid'] = $eid;            
          
             //redirect to dashboard
-            header("Location: userPage.php");
+            header("Location: home.php");
+        }
+        elseif ($res_count) {
+            //set session variables
+            $_SESSION['role'] = "Resident";
+            $_SESSION['fname'] = $fName;
+            $_SESSION['eid'] = $eid;            
+         
+            //redirect to dashboard
+            header("Location: home.php");
         }
         else 
-        {
-            //$_SESSION['fname'] = $fName;
-            $_SESSION['eid'] = $eid;       
+        {       
+            $_SESSION['message'] = 'Invalid EID';
+            
             //redirect to index page
-            header("Location: userpage.php");
+            header("Location: index.php");
         }
     }
 ?>
@@ -48,14 +84,13 @@
     <nav>
       <ul>
         <li style="float:left;"> 
-          <a href="#home" style=""><strong>Student Housing Portal</strong></a>
+          <a href="home.php" style=""><strong>Student Housing Portal</strong></a>
         </li>
       </ul>
     </nav>
 
     <main>
       <div id="login-container">
-        <h1>Student Housing Portal <span class="orange"></span></h1>
         <div class="login">
             <h2>Login</h2>
             <form name="login" action="index.php" method="POST">
