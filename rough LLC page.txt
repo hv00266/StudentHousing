@@ -1,0 +1,17 @@
+<hmtl>
+    <head> 
+    <title>
+        Living Learning Center
+    </title>
+    </head>
+    <body>
+      <h1>About Living Learning Center</h1>
+      <?php echo "Our Living Learn Center is designed to make all students and guests recieve a warm welcome when arriving onto our campus."; ?>
+      <h1>Contact Information</h1>
+      <?php echo "Phone Number: ***-***-****";
+                 "Email: emailaddress@gmail.com";
+                 "Director Number: ***-***-****";
+                 "Director Email: emailaddress@gmail.com";
+      <?
+    </body>
+</hmtl>
