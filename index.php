@@ -3,6 +3,7 @@
     session_start();
 
     $_SESSION['eid'] = NULL;
+    $_SESSION['role'] = NULL;
 
     if(isset($_SESSION['message'])) {
 ?>
@@ -13,12 +14,11 @@
    
     if($_SERVER["REQUEST_METHOD"] == "POST") {
       
-        //get eid and password from post request
+        //get eid from post request
         $eid = mysqli_real_escape_string($db,$_POST['eid']);
-        //$password = mysqli_real_escape_string($db,$_POST['password']); 
         
         //query Users table to check if user exists
-        $res = "SELECT * FROM Resident WHERE EID = '$eid'/*  and userPassword = '$password' */";
+        $res = "SELECT * FROM Resident WHERE EID = '$eid'";
         $ra = "SELECT * FROM Resident WHERE RA_EID = '$eid'";
         $dir = "SELECT * FROM Director WHERE Dir_eid = '$eid'";
 
@@ -96,9 +96,6 @@
             <form name="login" action="index.php" method="POST">
                 <label for="eid">EID</label>
                 <input type="text" id="eid" name="eid" placeholder="123456789" />
-
-                <!-- <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="*******" /> -->
 
                 <div class="center">
                     <input type="submit" value="Submit" class="right"/>

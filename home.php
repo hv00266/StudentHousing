@@ -81,11 +81,19 @@
                 </script>
         <?php }
 
-            if($_SESSION['role'] == 'Resident'){
+            if($_SESSION['role'] == NULL){
         ?>
                 <script type="text/javascript">
                     document.getElementById('myresidents').style.display = 'none';
                 </script>
-        <?php } ?>
+        <?php
+            }
+            elseif($_SESSION['role'] == 'Resident'){
+                ?>
+                        <script type="text/javascript">
+                            document.getElementById('myresidents').style.display = 'none';
+                        </script>
+                <?php }
+        ?>
     </body>
 </html>
