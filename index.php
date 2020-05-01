@@ -2,6 +2,8 @@
     include("config.php");
     session_start();
 
+    $_SESSION['eid'] = NULL;
+
     if(isset($_SESSION['message'])) {
 ?>
        <h1 style="color: white; background-color: #ff9999;"><?php echo $_SESSION['message']; ?></h1>
@@ -10,8 +12,6 @@
     }
    
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-
-        $_SESSION['eid'] = NULL;
       
         //get eid and password from post request
         $eid = mysqli_real_escape_string($db,$_POST['eid']);

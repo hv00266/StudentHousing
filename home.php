@@ -18,6 +18,7 @@
                     <a href="home.php"><strong>Student Housing Portal</strong></a>
                 </li>
                 <li id="login"><a href="index.php"><strong>Login</strong></a></li>
+                <li id="logout"><a href="index.php"><strong>Log Out</strong></a></li>
             </ul>
         </nav>
         <main>
@@ -50,10 +51,19 @@
                 <a class="cardLink" href="director.php"><div class="card">
                     <div class="container" style="display: inline-block;">
                         <h4><b>Directors</b></h4>
-                        <p>Director Info</p>
+                        <p>Director info</p>
                     </div>
                 </div></a>
                 </div>
+            </div>
+
+            <div id="myresidents">
+                    <a class="cardLink" href="myresidents.php"><div class="card">
+                        <div class="container" style="display: inline-block;">
+                            <h3><b>My Residents</b></h3>
+                            <p>See resident info</p>
+                        </div>
+                    </div></a>
             </div>
         </main>
         <?php 
@@ -61,6 +71,20 @@
         ?>
                 <script type="text/javascript">
                     document.getElementById('login').style.display = 'none';
+                </script>
+        <?php
+            }
+            else {
+        ?>
+                <script type="text/javascript">
+                    document.getElementById('logout').style.display = 'none';
+                </script>
+        <?php }
+
+            if($_SESSION['role'] == 'Resident'){
+        ?>
+                <script type="text/javascript">
+                    document.getElementById('myresidents').style.display = 'none';
                 </script>
         <?php } ?>
     </body>

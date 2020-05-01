@@ -26,6 +26,7 @@
                     <a href="home.php"><strong>Student Housing Portal</strong></a>
                 </li>
                 <li id="login"><a href="index.php"><strong>Login</strong></a></li>
+                <li id="logout"><a href="index.php"><strong>Log Out</strong></a></li>
             </ul>
         </nav>
         <main>
@@ -111,6 +112,13 @@
         ?>
                 <script type="text/javascript">
                     document.getElementById('login').style.display = 'none';
+                </script>
+        <?php
+            }
+            else {
+        ?>
+                <script type="text/javascript">
+                    document.getElementById('logout').style.display = 'none';
                 </script>
         <?php } ?>
     </body>
