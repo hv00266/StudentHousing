@@ -16,9 +16,7 @@
     else {
         header("Location: home.php");
     }
-
-    $query = "SELECT EID, fname, lname, room_no, residence_hall, sex, bday, Llc_no, RA_EID FROM Resident
-    WHERE RA_EID = $eid";
+    
     $result = mysqli_query($db, $query);
 
     if(!$result) { 
@@ -39,8 +37,8 @@
                 <li style="float:left;"> 
                     <a href="home.php"><strong>Student Housing Portal</strong></a>
                 </li>
-                <li><a href="home.php"><strong>Home</strong></a></li>
                 <li><a href="index.php"><strong>Log Out</strong></a></li>
+                <li><a href="home.php"><strong>Home</strong></a></li>
             </ul>
         </nav>
         <main>
@@ -74,7 +72,7 @@
                             <td><?php echo $r['bday']; ?></td>
                             <td><?php echo $r['Llc_no']; ?></td>
                             <td><?php echo $r['RA_EID']; ?></td>
-                            <td class="dironly"><a href="editRes.php"><button>Edit</button></a></th>
+                            <td class="dironly"><a class="edit_btn" href="editRes.php?edit=<?php echo $r['EID']; ?>"><button>Edit</button></a></th>
                         </tr>
                         <?php 
                             endwhile;

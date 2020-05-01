@@ -30,11 +30,8 @@ a:hover
 
 #login-container
 {
-    margin: 0;
-    padding: 100px 0px;
-/*     background-image: url(../images/mainbackground.jpg); */
-    background-size: 100%;
-    background-repeat: repeat-x;
+    margin: auto;
+    padding: 25px;
 }
 
 h1
@@ -165,3 +162,7 @@ h1
     width: 45%;
 }
 
+/* Edit resident page */
+.input-group label, .input-group input {
+    float: left;
+}
