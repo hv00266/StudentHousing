@@ -59,37 +59,37 @@
                 <input type="hidden" name="eid" value="<?php echo $edit_eid; ?>" readonly>
             </div>
             <div class="input-group">
-                <label>First Name</label>
+                <label>First Name</label><br>
                 <input type="text" name="fname" value="<?php echo $r['fname']; ?>">
-            </div>
+            </div><br><br>
             <div class="input-group">
-                <label>Last Name</label>
+                <label>Last Name</label><br>
                 <input type="text" name="lname" value="<?php echo $r['lname']; ?>">
-            </div>
+            </div><br><br>
             <div class="input-group">
-                <label>Room #</label>
+                <label>Room #</label><br>
                 <input type="text" name="room_no" value="<?php echo $r['room_no']; ?>">
-            </div>
+            </div><br><br>
             <div class="input-group">
-                <label>Residence Hall</label>
+                <label>Residence Hall</label><br>
                 <input type="text" name="residenceHall" value="<?php echo $r['residence_hall']; ?>">
-            </div>
+            </div><br><br>
             <div class="input-group">
-                <label>Birthday</label>
+                <label>Birthday</label><br>
                 <input type="date" name="bday" value="<?php echo $r['bday']; ?>">
-            </div>
+            </div><br><br>
             <div class="input-group">
-                <label>Sex</label>
+                <label>Sex</label><br>
                 <input type="text" name="sex" value="<?php echo $r['sex']; ?>">
-            </div>
+            </div><br><br>
             <div class="input-group">
-                <label>LLC #</label>
+                <label>LLC #</label><br>
                 <input type="text" name="llc_no" value="<?php echo $r['Llc_no']; ?>">
-            </div>
+            </div><br><br>
             <div class="input-group">
-                <label>RA EID</label>
+                <label>RA EID</label><br>
                 <input type="text" name="ra_eid" value="<?php echo $r['RA_EID']; ?>">
-            </div>
+            </div><br><br>
             <div class="input-group">
                 <input class="btn" type="submit" name="save" value="Save">
             </div>
